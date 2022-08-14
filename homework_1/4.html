@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Homework</title>
-</head>
-<body>
-<!--
+  <head>
+    <meta charset="UTF-8" />
+    <title>Homework</title>
+  </head>
+  <body>
+    <!--
 Необязательное задание.
 
 Необходимо от пользователя получить число.
@@ -25,10 +25,26 @@
 
 Уточнение: пользователь всегда вводит корректное положительное целое число.
 -->
-<script>
-  "use strict";
+    <script>
+      "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
-</body>
+      /**
+       * @param {number} userInput число вводимое пользователем.
+       * @param {number} digits вычисляем разряды в числе пользователя.
+       * @return {string} digits вывод значений переменной.
+       */
+
+      let userInput = prompt();
+      let digits = userInput % 10;
+      alert("В числе " + digits + " единиц");
+
+      userInput = parseInt(userInput / 10);
+      digits = userInput % 10;
+      alert("В числе " + digits + " десятков");
+
+      userInput = parseInt(userInput / 10);
+      digits = userInput % 10;
+      alert("В числе " + digits + " сотен");
+    </script>
+  </body>
 </html>
