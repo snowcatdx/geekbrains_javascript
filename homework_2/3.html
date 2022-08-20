@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Homework</title>
-</head>
-<body>
-<!--
+  <head>
+    <meta charset="UTF-8" />
+    <title>Homework</title>
+  </head>
+  <body>
+    <!--
 Обязательное задание.
 
 Необходимо попросить пользователя ввести два числа в переменные `a` и `b`.
@@ -18,10 +18,31 @@
 `a` и `b`.
 В остальных случаях программа не должна ничего выводить.
 -->
-<script>
-  "use strict";
+    <script>
+      "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
-</body>
+      /*
+        @param {number} Переменная a, которую вводит пользователь
+        @param {number} Переменная b, которую вводит пользователь
+        @return {number} Переменная result, результат вычислений
+      */
+
+      let a = Number(prompt("Введите число А"));
+      let b = Number(prompt("Введите число Б"));
+      let result;
+
+      if (a > 0 && b > 0) {
+        result = a - b;
+        alert(`Оба числа положительные. Разность А и Б равняется ${result}`);
+      } else if (a < 0 && b < 0) {
+        result = a * b;
+        alert(
+          `Оба числа отрицательные. Произведение А и Б равняется ${result}`
+        );
+      } else if (a < 0 || b < 0) {
+        result = a + b;
+        alert(`Оба числа разных знаков. Сумма А и Б равняется ${result}`);
+      }
+    </script>
+  </body>
 </html>
