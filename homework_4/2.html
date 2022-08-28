@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Homework</title>
+  </head>
+  <body>
+    <!--
+      Обязательное задание.
+
+      Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+      Необходимо создать функцию-конструктор/класс для поста в социальной сети.
+      Названия: `PostES5` для es5 стиля и `PostES6` для es6 стиля.
+      Пост должен хранить:
+      1. Автора поста (имени достаточно).
+      2. Текст поста.
+      3. Дату и время последнего изменения поста.
+      Данные автора поста и текст поста необходимо передавать при создании
+      экземпляра объекта.
+      Каждому экземпляру объекта должен быть доступен метод `edit`, который будет
+      менять текст поста.
+
+      ---
+
+      Необходимо создать функцию-конструктор/класс для закрепленного поста в
+      социальной сети.
+      Названия: `AttachedPostES5` для es5 стиля и `AttachedPostES6` для es6 стиля.
+      Закрепленный пост должен наследоваться от обычного поста.
+      Данные автора поста и текст поста необходимо передавать при создании
+      экземпляра объекта.
+      Закрепленный пост должен иметь свойство `highlighted`, в котором по умолчанию
+      будет лежать значение false (это свойство будет обозначать, будет ли наш
+      закрепленный пост подсвечен).
+      У экземпляров объекта закрепленного поста должен быть метод с названием
+      `makeTextHighlighted`, который сделает так, чтобы наш пост стал подсвеченным
+      (будет менять свойство `highlighted`).
+
+      ---
+
+      Подсказки:
+      1. Задание сложное, советую делать по аналогии с примером на онлайн-занятии.
+      2. Обратите внимание что пост хранит "дату и время последнего изменения
+      поста", это значит что если пост кто-то изменит (например вызовет какой-то
+      метод, который изменит что-то в посте), дата и время последнего изменения
+      поста также должна измениться.
+      3. Выполняйте все по порядку, не стоит пытаться сделать все сразу, иначе можно
+      что-нибудь пропустить.
+      4. Если непонятно условие - задайте вопрос.
+      -->
+    <script>
+      "use strict";
+      // ES5
+      function PostES5(author, message) {
+        this.author = author;
+        this.message = message;
+        this.postDate = new Date();
+      }
+
+      PostES5.prototype.edit = function (newMessage) {
+        this.message = newMessage;
+        this.postDate = new Date();
+      };
+
+      const post = new PostES5("Иннокентий", "Всем привет!");
+
+      // console.log(
+      //   `${post.author} пишет "${post.message}". Дата сообщения ${post.postDate}`
+      // );
+
+      post.edit("Упс, не туда написал...");
+
+      // console.log(
+      //   `${post.author} изменил свое сообщение на "${post.message}"
+      //   (Дата изменения: ${post.postDate})`
+      // );
+
+      function AttachedPostES5(author, message) {
+        PostES5.call(this, author, message);
+        this.highlighted = false;
+      }
+      AttachedPostES5.prototype = Object.create(PostES5.prototype);
+      AttachedPostES5.prototype.constructor = AttachedPostES5;
+
+      AttachedPostES5.prototype.makeTextHighlighted = function () {
+        this.highlighted = true;
+        this.postDate = new Date();
+      };
+
+      const attPost = new AttachedPostES5(
+        "Василий",
+        "Внимание! Это страница Василия!"
+      );
+
+      console.log(
+        `${attPost.author} закрепил сообщение на своей странице:
+        ${attPost.message} ${attPost.postDate}`
+      );
+      attPost.makeTextHighlighted();
+      console.log(attPost);
+
+      // ES6
+      class PostES6 {
+        constructor(author, message) {
+          this.author = author;
+          this.message = message;
+          this.postDate = new Date();
+        }
+
+        edit = function (newMessage) {
+          this.message = newMessage;
+          this.postDate = new Date();
+        };
+      }
+
+      const post2 = new PostES5(
+        "Дмитрий",
+        "Навернул таз пельменей, лежу на диване"
+      );
+
+      // console.log(
+      //   `${post2.author} пишет "${post2.message}". Дата сообщения ${post2.postDate}`
+      // );
+
+      post2.edit(
+        "Отлучился на пятиминутный перекус и продолжаю работу над проектом"
+      );
+
+      // console.log(
+      //   `${post2.author} изменил свое сообщение на "${post2.message}"
+      //   (Дата изменения: ${post2.postDate})`
+      // );
+
+      class AttachedPostES6 extends PostES6 {
+        constructor(author, message) {
+          super(author, message);
+          this.highlighted = false;
+        }
+
+        makeTextHighlighted = function () {
+          this.highlighted = true;
+          this.postDate = new Date();
+        };
+      }
+
+      const attPost2 = new AttachedPostES5(
+        "Геннадий",
+        "Не беспокоить в течении двух часов!"
+      );
+
+      console.log(
+        `${attPost2.author} закрепил сообщение на своей странице:
+        ${attPost2.message} начиная с ${attPost2.postDate}`
+      );
+      attPost2.makeTextHighlighted();
+      console.log(attPost2);
+    </script>
+  </body>
+</html>
