@@ -37,13 +37,40 @@
   1. При наведении на любую из звезд, данной звезде должен ставиться класс
   golden, также такой класс должен ставиться всем звездам до нее слева.
   */
+  
+  const rating = document.querySelector('.stars_container');
 
+  rating.addEventListener('mouseover', event => {
+      if (!event.target.classList.contains('fa-star')) {
+        return;
+       }
+      
+      let star = event.target;
+
+      do {
+        star.classList.add('golden');
+        star = star.previousElementSibling;
+      } while (star);
+
+    });
 
   /*
   2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого
   задания должны быть удалены.
    */
 
+  rating.addEventListener('mouseout', event => {
+    if (!event.target.classList.contains('fa-star')) {
+      return;
+      }
+    
+    let star = event.target;
+
+    do {
+      star.classList.remove('golden');
+      star = star.previousElementSibling;
+    } while (star);          
+  });
 
   /*
   3. Когда мы переводим мышь от одной звезды к другой, у нас могут мигать
@@ -51,7 +78,11 @@
   Можем ли мы это исправить? Если да, то предложите решение.
   */
 
-
+  document.querySelector('.stars_container').childNodes.forEach(node => {
+    if (node.nodeName === '#text') {
+      node.remove();
+    }
+  });
 </script>
 </body>
 </html>
