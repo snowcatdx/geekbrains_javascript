@@ -66,6 +66,9 @@
   также должен меняться.
   */
 
+  document.querySelector('#from').addEventListener('input', event => {
+    document.querySelector('span').textContent = event.target.value;
+  });
 
   /*
   2. При клике на кнопку с классом messageBtn необходимо элементу с классом
@@ -74,6 +77,10 @@
   2) поставить данному элементу стиль visibility в значение 'visible'.
    */
 
+  document.querySelector('.messageBtn').addEventListener('click', event => {
+    event.target.style.visibility = 'visible';
+    event.target.classList.add('animate__animated', 'animate__fadeInLeftBig');      
+  });
 
   /*
   3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
@@ -86,8 +93,26 @@
   данному полю).
   Если поле было чем-либо заполнено, подсветку (класс error) необходимо убрать.
    */
+  const formData = document.querySelectorAll('.form-control');
 
+  document.querySelector('form').addEventListener('submit', event => {    
+    formData.forEach(elem => {
+      if (elem.value === '') {
+        event.preventDefault();
+        elem.classList.add('error');
+      }
+    });
+  });
 
+  document.querySelector('form').addEventListener('input', event => {    
+    formData.forEach(elem => {
+      if (elem.value === '') {
+        return;
+      }
+
+      elem.classList.remove('error');
+    });
+  });
 </script>
 </body>
 </html>
