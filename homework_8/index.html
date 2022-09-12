@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,10 +25,28 @@
                 <img src="images/bars.png" alt="">
                 <img class="userIcon" src="images/user.png" alt="">
 
-                <span class="cartIconWrap">
+                <div class="cartIconWrap">
                     <img class="cartIcon" src="images/cart.png" alt="">
-                    <span>5</span>
-                </span>
+                    <span class="cartCount">0</span>
+
+                    <div class="cartIconWrap_popup">
+                        <div class="row g-1 popupHeader">
+                            <span class="col-6">Название</span>
+                            <span class="col-2">Цена</span>
+                            <span class="col-2">Кол-во</span>
+                            <span class="col-2">Итого</span>
+                        </div>
+
+                        <div class="popupBody">
+
+                        </div>
+
+                        <div class="row g-1 popupTotal">
+                            <span class="col"></span>
+                            <span class="col-auto popupTotal_value"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -137,12 +159,12 @@
 
         <div class="featuredItems">
 
-            <div class="featuredItem">
+            <div class="featuredItem" class="featuredItem" data-id="6" data-name="ELLERY X M'O CAPSULE" data-price="52">
 
                 <div class="featuredImgWrap">
                     <img src="images/featured/1.jpg" alt="">
                     <div class="featuredImgDark">
-                        <button>
+                        <button class="add-to-cart-btn">
                             <img src="images/cart.svg" alt="">
                             Add to Cart
                         </button>
@@ -165,12 +187,12 @@
 
             </div>
 
-            <div class="featuredItem">
+            <div class="featuredItem" data-id="1" data-name="ELLERY X M'O CAPSULE" data-price="52">
 
                 <div class="featuredImgWrap">
                     <img src="images/featured/2.jpg" alt="">
                     <div class="featuredImgDark">
-                        <button>
+                        <button class="add-to-cart-btn">
                             <img src="images/cart.svg" alt="">
                             Add to Cart
                         </button>
@@ -193,12 +215,12 @@
 
             </div>
 
-            <div class="featuredItem">
+            <div class="featuredItem" data-id="2" data-name="ELLERY X M'O CAPSULE" data-price="152">
 
                 <div class="featuredImgWrap">
                     <img src="images/featured/3.jpg" alt="">
                     <div class="featuredImgDark">
-                        <button>
+                        <button class="add-to-cart-btn">
                             <img src="images/cart.svg" alt="">
                             Add to Cart
                         </button>
@@ -221,12 +243,12 @@
 
             </div>
 
-            <div class="featuredItem">
+            <div class="featuredItem" data-id="3" data-name="ELLERY X M'O CAPSULE" data-price="237">
 
                 <div class="featuredImgWrap">
                     <img src="images/featured/4.jpg" alt="">
                     <div class="featuredImgDark">
-                        <button>
+                        <button class="add-to-cart-btn">
                             <img src="images/cart.svg" alt="">
                             Add to Cart
                         </button>
@@ -249,12 +271,12 @@
 
             </div>
 
-            <div class="featuredItem">
+            <div class="featuredItem" data-id="4" data-name="ELLERY X M'O CAPSULE" data-price="52">
 
                 <div class="featuredImgWrap">
                     <img src="images/featured/5.jpg" alt="">
                     <div class="featuredImgDark">
-                        <button>
+                        <button class="add-to-cart-btn">
                             <img src="images/cart.svg" alt="">
                             Add to Cart
                         </button>
@@ -276,12 +298,12 @@
                 </div>
 
             </div>
-            <div class="featuredItem">
+            <div class="featuredItem" data-id="5" data-name="ELLERY X M'O CAPSULE" data-price="52">
 
                 <div class="featuredImgWrap">
                     <img src="images/featured/6.jpg" alt="">
                     <div class="featuredImgDark">
-                        <button>
+                        <button class="add-to-cart-btn">
                             <img src="images/cart.svg" alt="">
                             Add to Cart
                         </button>
@@ -399,12 +421,13 @@
                 </a>
             </div>
             <div class="footerRight">
-                &copy; 2021  Brand  All Rights Reserved.
+                &copy; 2021 Brand All Rights Reserved.
             </div>
         </div>
     </div>
 
     <script src="app.js"></script>
+    <script src="shopping-cart.js"></script>
 </body>
 
 </html>

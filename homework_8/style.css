@@ -35,6 +35,10 @@ body {
     color: #e8e8e8;
 }
 
+.rightHeader {
+    display: flex;
+}
+
 .userIcon,
 .cartIcon {
     display: none;
@@ -60,7 +64,7 @@ body {
     position: relative;
 }
 
-.cartIconWrap span {
+.cartCount {
     display: inline-block;
     width: 19px;
     height: 19px;
@@ -73,6 +77,36 @@ body {
     top: -19px;
     font-size: 12px;
     line-height: 19px;
+}
+
+.cartIconWrap_popup {
+    display: none;
+    width: 600px;
+    background-color: #fff;
+    padding: 15px;
+    position: absolute;
+    top: calc(100% + 20px);
+    right: 0;
+    z-index: 100;
+}
+
+.cartIconWrap_popup.active {
+    display: block;
+}
+
+.popupHeader {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+}
+
+.popupRow {
+    border-bottom: 1px solid indigo;
+}
+
+.popupTotal {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .newArrivals {
